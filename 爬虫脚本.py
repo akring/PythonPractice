@@ -24,11 +24,12 @@ def getImage(url, filePath):
             link = image.get('src')
             name = image.get('alt')
 
-            if not os.path.exists(filePath):
+            if not os.path.exists(filePath):  # 如果路径不存在，则创建路径
                 os.mkdir(filePath)
 
             filesavepath = '/Users/akring/Desktop/pic/%s.png' % name
 
+            # 如果存在重名文件，则不再次下载
             if os.path.exists(filesavepath) and os.path.isfile(filesavepath):
                 # pos = filesavepath.find(".png")
                 # filesavepath = filesavepath[:pos] + "附件" + filesavepath[pos:]
